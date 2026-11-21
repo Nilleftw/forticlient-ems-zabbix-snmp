@@ -1,7 +1,7 @@
 # FortiClient EMS by SNMP
 
-Zabbix 7.0-template för FortiClient EMS 7.4.8. Importera [template_forticlient_ems_snmp.yaml](template_forticlient_ems_snmp.yaml).
+Zabbix 7.0 template for FortiClient EMS 7.4.8. Import [template_forticlient_ems_snmp.yaml](template_forticlient_ems_snmp.yaml).
 
-Detta är den senast tillhandahållna v8-templaten, oförändrad. Den innehåller site-discovery och licensförbrukning i procent med verifierat 90 %-larm samt process-, system-, disk-, nätverks- och EMS-mätvärden. En SNMP v2c-interface på Zabbix-hosten och åtkomst till UDP/161 krävs.
+This is the latest supplied v8 template, unchanged. It includes site discovery, license utilization in percent with a verified 90% trigger, and process, system, filesystem, network, and EMS metrics. The Zabbix host needs an SNMP v2c interface and access to UDP/161 on the EMS appliance.
 
-CPU, RAM, swap och disk behöver jämföras mot EMS i labbet innan de betraktas som slutligt verifierade.
+CPU, RAM, swap, and filesystem values still need to be compared with EMS in the lab before they are considered fully verified.
