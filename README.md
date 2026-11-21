@@ -2,6 +2,8 @@
 
 Zabbix 7.0 template for FortiClient EMS 7.4.8. Import [template_forticlient_ems_snmp.yaml](template_forticlient_ems_snmp.yaml). Configure an SNMP interface on the Zabbix host and allow UDP/161 to the EMS appliance. The template uses numeric OIDs and does not require a local MIB installation.
 
+Template vendor is **Nilleftw** (maintainer), with version **7.0-0** for the first numbered revision on the Zabbix 7.0 branch. This is a template revision, not an EMS version or a required Zabbix patch level. Template tags are `class: software`, `target: forticlient-ems`, and `target: fortinet`.
+
 ## Default monitoring
 
 | Area | Enabled by default | Alert |
