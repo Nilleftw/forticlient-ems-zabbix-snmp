@@ -1,4 +1,3 @@
-Unable to open session log file "/home/nisamu/.cache/starship/session_2106228239117711.log": Os { code: 30, kind: ReadOnlyFilesystem, message: "Read-only file system" }!
 # FortiClient EMS by SNMP
 
 Zabbix 7.0-template för FortiClient EMS 7.4.8. Importera [template_forticlient_ems_snmp.yaml](template_forticlient_ems_snmp.yaml).
