@@ -8,8 +8,18 @@ zabbix_export:
     template: Fortinet FortiClient EMS by SNMP
     name: Fortinet FortiClient EMS by SNMP
     description: FortiClient EMS by SNMP for Zabbix 7.0. Core license, CPU, RAM and filesystem monitoring is enabled by default. Process, network, keepalive, node and swap diagnostics are optional. Uses numeric OIDs; no MIB installation required. SNMP has fewer metrics than the HTTP template.
+    vendor:
+      name: Nilleftw
+      version: 7.0-0
     groups:
     - name: Templates/Network devices
+    tags:
+    - tag: class
+      value: software
+    - tag: target
+      value: forticlient-ems
+    - tag: target
+      value: fortinet
     items:
     - uuid: 3e61aa01f0994a8cba3a7a9d580b6824
       name: 'EMS: Site license SNMP walk'
