@@ -5,8 +5,8 @@ zabbix_export:
     name: Templates/Network devices
   templates:
   - uuid: 6016bdc5203e4b3695af8c065d19a6e0
-    template: Fortinet FortiClient EMS by SNMP
-    name: Fortinet FortiClient EMS by SNMP
+    template: FortiClient EMS by SNMP
+    name: FortiClient EMS by SNMP
     description: FortiClient EMS by SNMP for Zabbix 7.0. Core license, CPU, RAM and filesystem monitoring is enabled by default. Process, network, keepalive, node and swap diagnostics are optional. Uses numeric OIDs; no MIB installation required. SNMP has fewer metrics than the HTTP template.
     vendor:
       name: Nilleftw
@@ -33,7 +33,7 @@ zabbix_export:
       description: Raw SNMP walk of site license utilization and names.
       triggers:
       - uuid: 525ddbc71454448abff5cd52c66b46e7
-        expression: nodata(/Fortinet FortiClient EMS by SNMP/ems.license.walk,20m)=1
+        expression: nodata(/FortiClient EMS by SNMP/ems.license.walk,20m)=1
         name: 'EMS: SNMP license data has stopped'
         priority: HIGH
         description: No SNMP license walk data for 20 minutes. Check SNMP reachability and EMS service.
@@ -674,7 +674,7 @@ zabbix_export:
         value: system
       triggers:
       - uuid: 9e99a8e14876403aab7f1978ca1787ca
-        expression: avg(/Fortinet FortiClient EMS by SNMP/ems.system.cpu.pct,15m)>{$EMS.SNMP.CPU_WARN}
+        expression: avg(/FortiClient EMS by SNMP/ems.system.cpu.pct,15m)>{$EMS.SNMP.CPU_WARN}
         name: 'EMS: CPU utilization is high'
         priority: WARNING
         description: CPU utilization exceeded the configured threshold for 15 minutes.
@@ -745,7 +745,7 @@ zabbix_export:
       params: 100*(1-last(//ems.ram.available)/last(//ems.ram.total))
       triggers:
       - uuid: ab79f78f6c7843fd8f0b751e64a53a10
-        expression: avg(/Fortinet FortiClient EMS by SNMP/ems.system.ram.pct,15m)>{$EMS.SNMP.RAM_WARN}
+        expression: avg(/FortiClient EMS by SNMP/ems.system.ram.pct,15m)>{$EMS.SNMP.RAM_WARN}
         name: 'EMS: RAM utilization is high'
         priority: WARNING
         description: RAM utilization exceeded the configured threshold for 15 minutes.
@@ -857,7 +857,7 @@ zabbix_export:
         description: Site license usage in percent. Source value is OCTET STRING containing a decimal number.
       trigger_prototypes:
       - uuid: ad59be01ce944c22bee17324b33109e1
-        expression: last(/Fortinet FortiClient EMS by SNMP/ems.license.used[{#SNMPINDEX}])>={$EMS.LICENSE.WARN}
+        expression: last(/FortiClient EMS by SNMP/ems.license.used[{#SNMPINDEX}])>={$EMS.LICENSE.WARN}
         name: 'Site {#SITENAME}: License utilization at or above {$EMS.LICENSE.WARN}%'
         priority: WARNING
         description: Less than or equal to 10% licenses remaining when macro is 90.
@@ -874,7 +874,7 @@ zabbix_export:
         graph_items:
         - color: 1A7C11
           item:
-            host: Fortinet FortiClient EMS by SNMP
+            host: FortiClient EMS by SNMP
             key: ems.license.used[{#SNMPINDEX}]
     - uuid: bea49517515c4478a79891bee7f7a280
       name: 'EMS: Site keepalive discovery'
@@ -921,7 +921,7 @@ zabbix_export:
         graph_items:
         - color: 1A7C11
           item:
-            host: Fortinet FortiClient EMS by SNMP
+            host: FortiClient EMS by SNMP
             key: ems.keepalive.ms[{#SNMPINDEX}]
       status: DISABLED
     - uuid: 1b001f3cbb0f4ba1a2543fb2821f1636
@@ -968,7 +968,7 @@ zabbix_export:
         graph_items:
         - color: 1A7C11
           item:
-            host: Fortinet FortiClient EMS by SNMP
+            host: FortiClient EMS by SNMP
             key: ems.port.usage[{#SNMPINDEX}]
       status: DISABLED
     - uuid: b483b0e41d6a442bbc6913c478cf62c5
@@ -1052,7 +1052,7 @@ zabbix_export:
         graph_items:
         - color: 1A7C11
           item:
-            host: Fortinet FortiClient EMS by SNMP
+            host: FortiClient EMS by SNMP
             key: ems.db.monitor[{#SNMPINDEX}]
       status: DISABLED
     - uuid: 4e652fc8b2724b33991eb000bf77f275
@@ -1100,7 +1100,7 @@ zabbix_export:
         graph_items:
         - color: 1A7C11
           item:
-            host: Fortinet FortiClient EMS by SNMP
+            host: FortiClient EMS by SNMP
             key: ems.net.sent[{#SNMPINDEX}]
       status: DISABLED
     - uuid: 8b2d00887e2846929ea6999171bc339b
@@ -1148,7 +1148,7 @@ zabbix_export:
         graph_items:
         - color: 1A7C11
           item:
-            host: Fortinet FortiClient EMS by SNMP
+            host: FortiClient EMS by SNMP
             key: ems.net.recv[{#SNMPINDEX}]
       status: DISABLED
     - uuid: ce903c1f8ae847378939afe4951fdf3b
@@ -1250,11 +1250,11 @@ zabbix_export:
         graph_items:
         - color: 1A7C11
           item:
-            host: Fortinet FortiClient EMS by SNMP
+            host: FortiClient EMS by SNMP
             key: ems.system.fs.used.pct[{#SNMPINDEX}]
       trigger_prototypes:
       - uuid: 32eb134358bf4d83b07ffd0c29889448
-        expression: avg(/Fortinet FortiClient EMS by SNMP/ems.system.fs.used.pct[{#SNMPINDEX}],15m)>{$EMS.SNMP.DISK_WARN}
+        expression: avg(/FortiClient EMS by SNMP/ems.system.fs.used.pct[{#SNMPINDEX}],15m)>{$EMS.SNMP.DISK_WARN}
         name: 'EMS filesystem {#FSNAME}: utilization is high'
         priority: WARNING
         description: Filesystem utilization exceeded the configured threshold for 15 minutes.
@@ -1285,51 +1285,51 @@ zabbix_export:
     graph_items:
     - color: 1A7C11
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[1]
     - color: D95700
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[2]
     - color: 2E66B8
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[7]
     - color: A5308C
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[15]
     - color: BB9A00
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[17]
     - color: 287F8F
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[20]
     - color: A04040
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[28]
     - color: 4F7A3C
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[29]
     - color: 7969AB
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[30]
     - color: 9A6A23
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[31]
     - color: '777777'
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[32]
     - color: 3282A8
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.cpu[33]
   - uuid: 456fdbacf492427f8eccb78fcf80ccae
     name: 'EMS: Process memory utilization'
@@ -1338,51 +1338,51 @@ zabbix_export:
     graph_items:
     - color: 1A7C11
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[1]
     - color: D95700
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[2]
     - color: 2E66B8
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[7]
     - color: A5308C
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[15]
     - color: BB9A00
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[17]
     - color: 287F8F
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[20]
     - color: A04040
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[28]
     - color: 4F7A3C
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[29]
     - color: 7969AB
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[30]
     - color: 9A6A23
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[31]
     - color: '777777'
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[32]
     - color: 3282A8
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.process.memory[33]
   - uuid: 8d33c2a214c64df899ae7e9c0111d5e2
     name: 'EMS: System CPU and RAM utilization'
@@ -1391,9 +1391,9 @@ zabbix_export:
     graph_items:
     - color: 1A7C11
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.system.cpu.pct
     - color: D95700
       item:
-        host: Fortinet FortiClient EMS by SNMP
+        host: FortiClient EMS by SNMP
         key: ems.system.ram.pct
