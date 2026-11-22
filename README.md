@@ -36,3 +36,7 @@ The templates therefore share the core capacity alerts, but HTTP provides broade
 ## Validation
 
 Imported into Zabbix 7.0.32 and tested against FortiClient EMS 7.4.8. The SNMP host returned values for license utilization, total CPU, RAM, root and boot filesystem usage. All six discovered and static SNMP triggers were valid and no enabled item was unsupported after the lab host was updated. Validate filesystem indexes and item availability when importing into other EMS installations.
+
+## License
+
+MIT. See [LICENSE](LICENSE). Maintained by Nilleftw; not an official Fortinet template.
